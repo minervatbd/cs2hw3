@@ -45,8 +45,8 @@ public class GreedyChildren
         mergeSort(greedList, 0, kids - 1);
         mergeSort(sweetList, 0, candies - 1);
 
-        for (int h = 0; h < 15; h++)
-                System.out.printf("%d\t%d\n", greedList[h], sweetList[h]);
+        //for (int h = 0; h < 15; h++)
+        //        System.out.printf("%d\t%d\n", greedList[h], sweetList[h]);
 
     }
 
