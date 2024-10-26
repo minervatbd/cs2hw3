@@ -16,6 +16,10 @@ public class GreedyChildren
     // sweetness factor of candies
     int[] sweetList;
 
+    // counters
+    int candies;
+    int kids;
+
     // num of happies
     int happyKids;
     // num of angries
@@ -26,6 +30,9 @@ public class GreedyChildren
     {
         this.happyKids = 0;
         this.angryKids = 0;
+
+        this.candies = canNum;
+        this.kids = kidNum;
 
         Read(fnGreed, fnSweet);
     }
@@ -88,7 +95,8 @@ public class GreedyChildren
             gScan.close();
             sScan.close();
 
-            System.out.println(this.greedList.toString());
+            for (int h = 0; h < 15; h++)
+                System.out.printf("%d\t%d\n", greedList[h], sweetList[h]);
 
             return;
         }
