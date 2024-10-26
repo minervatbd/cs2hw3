@@ -34,7 +34,7 @@ public class GreedyChildren
         this.candies = canNum;
         this.kids = kidNum;
 
-        Read(fnGreed, fnSweet);
+        Read(canNum, kidNum, fnGreed, fnSweet);
     }
 
     // TODO
@@ -43,7 +43,7 @@ public class GreedyChildren
         
     }
 
-    public void Read(String fnGreed, String fnSweet)
+    public void Read(int canNum, int kidNum, String fnGreed, String fnSweet)
     {
         try
         {
@@ -55,41 +55,18 @@ public class GreedyChildren
             Scanner gScan = new Scanner(gFile);
             Scanner sScan = new Scanner(sFile);
 
-            // temp arraylists
-            ArrayList<Integer> gArray = new ArrayList<Integer>();
-            ArrayList<Integer> sArray = new ArrayList<Integer>();
-
-            // length counters
-            int gLen = 0;
-            int sLen = 0;
-
-            // parse all ints into temp arraylist
-            while (gScan.hasNextLine())
-            {
-                gArray.add(Integer.parseInt(gScan.nextLine()));
-                gLen++;
-            }
-
-            while (sScan.hasNextLine())
-            {
-                sArray.add(Integer.parseInt(sScan.nextLine()));
-                sLen++;
-            }
+            //  temp arraylist
 
             // allocate lists with len space
-            this.greedList = new int[gLen];
-            this.sweetList = new int[sLen];
+            this.greedList = new int[kidNum];
+            this.sweetList = new int[canNum];
 
-            // transfer from temps to lists
-            for (int a = 0; a < gLen; a++)
-                this.greedList[a] = gArray.get(a);
+            // parse all ints in to lists
+            for (int a = 0; a < kidNum; a++)
+                this.greedList[a] = Integer.parseInt(gScan.nextLine());
             
-            for (int b = 0; b < sLen; b++)
-                this.sweetList[b] = sArray.get(b);
-            
-            // get rid of the temps
-            gArray.clear();
-            sArray.clear();
+            for (int b = 0; b < canNum; b++)
+                this.sweetList[b] = Integer.parseInt(sScan.nextLine());
 
             // close scanners
             gScan.close();
