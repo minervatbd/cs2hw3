@@ -29,7 +29,7 @@ public class GreedyChildren
     GreedyChildren(int canNum, int kidNum, String fnGreed, String fnSweet)
     {
         this.happyKids = 0;
-        this.angryKids = 0;
+        this.angryKids = kidNum;
 
         this.candies = canNum;
         this.kids = kidNum;
