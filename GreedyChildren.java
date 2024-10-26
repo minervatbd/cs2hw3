@@ -45,35 +45,32 @@ public class GreedyChildren
         mergeSort(greedList, 0, kids - 1);
         mergeSort(sweetList, 0, candies - 1);
 
-        for (int h = 0; h < kids; h++)
-            System.out.printf("%d\n", greedList[h]);
+        //for (int h = 0; h < kids; h++)
+        //    System.out.printf("%d\n", greedList[h]);
             
-        for (int h = 0; h < candies; h++)
-            System.out.printf("%d\n", sweetList[h]);
-
-        int d = 0;
+        //for (int h = 0; h < candies; h++)
+        //    System.out.printf("%d\n", sweetList[h]);
+        
         int c = 0;
-        int greed = 0;
-        int inefficiency = 0;
+        int k = 0;
 
-        while (d < candies && c < kids)
+        while (c < candies && k < kids)
         {
-
-            greedList[c] -= sweetList[d];
-            System.out.printf("Candy #%d (%d) was given to child #%d (whos current greed factor is %d/%d)\n", d, sweetList[d], c, greed, greedList[c]);
-            
-
-            if (greedList[c] <= 0)
+            // current sweet wont satisfy current kid
+            if (sweetList[c] < greedList[k])
             {
-                inefficiency -= greedList[c];
-                angryKids--;
-                happyKids++;
+                // next kid
+                k++;
             }
-            c++;
-            d++;
+            // current sweet will satisfy kid
+            else
+            {
+                happyKids++;
+                angryKids--;
+                c++;
+                k++;
+            }
         }
-
-        System.out.println(inefficiency);
     }
 
     public void Read(int canNum, int kidNum, String fnGreed, String fnSweet)
