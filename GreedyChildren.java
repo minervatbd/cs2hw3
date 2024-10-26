@@ -45,34 +45,34 @@ public class GreedyChildren
         mergeSort(greedList, 0, kids - 1);
         mergeSort(sweetList, 0, candies - 1);
 
-        //for (int h = 0; h < 15; h++)
-        //        System.out.printf("%d\t%d\n", greedList[h], sweetList[h]);
+        for (int h = 0; h < kids; h++)
+            System.out.printf("%d\n", greedList[h]);
+            
+        for (int h = 0; h < candies; h++)
+            System.out.printf("%d\n", sweetList[h]);
 
         int d = 0;
         int c = 0;
         int greed = 0;
         int inefficiency = 0;
 
-        while (c < kids && d < candies)
+        while (d < candies && c < kids)
         {
-            greed = greedList[c];
-            while (greed > 0)
-            {
-                if (d == candies)
-                    continue;
-                greed -= sweetList[d];
-                d++;
-            }
 
-            if (greed <= 0)
+            greedList[c] -= sweetList[d];
+            System.out.printf("Candy #%d (%d) was given to child #%d (whos current greed factor is %d/%d)\n", d, sweetList[d], c, greed, greedList[c]);
+            
+
+            if (greedList[c] <= 0)
             {
-                inefficiency -= greed;
+                inefficiency -= greedList[c];
                 angryKids--;
                 happyKids++;
             }
-
             c++;
+            d++;
         }
+
         System.out.println(inefficiency);
     }
 
@@ -167,7 +167,7 @@ public class GreedyChildren
                 // otherwise, compare the two and determine which to put first
                 else {
 
-                    if (lArray[m] <= rArray[n]) {
+                    if (lArray[m] >= rArray[n]) {
                         pData[p] = lArray[m];
                         m++;
                     }
