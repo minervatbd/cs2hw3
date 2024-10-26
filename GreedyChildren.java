@@ -24,7 +24,10 @@ public class GreedyChildren
     // constructor time
     GreedyChildren(int canNum, int kidNum, String fnGreed, String fnSweet)
     {
-        
+        this.happyKids = 0;
+        this.angryKids = 0;
+
+        Read(fnGreed, fnSweet);
     }
 
     // TODO
@@ -67,15 +70,15 @@ public class GreedyChildren
             }
 
             // allocate lists with len space
-            greedList = new int[gLen];
-            sweetList = new int[sLen];
+            this.greedList = new int[gLen];
+            this.sweetList = new int[sLen];
 
             // transfer from temps to lists
             for (int a = 0; a < gLen; a++)
-                greedList[a] = gArray.get(a);
+                this.greedList[a] = gArray.get(a);
             
             for (int b = 0; b < sLen; b++)
-                sweetList[b] = sArray.get(b);
+                this.sweetList[b] = sArray.get(b);
             
             // get rid of the temps
             gArray.clear();
@@ -84,6 +87,8 @@ public class GreedyChildren
             // close scanners
             gScan.close();
             sScan.close();
+
+            System.out.println(this.greedList.toString());
 
             return;
         }
