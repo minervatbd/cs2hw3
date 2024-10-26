@@ -48,6 +48,32 @@ public class GreedyChildren
         //for (int h = 0; h < 15; h++)
         //        System.out.printf("%d\t%d\n", greedList[h], sweetList[h]);
 
+        int d = 0;
+        int c = 0;
+        int greed = 0;
+        int inefficiency = 0;
+
+        while (c < kids && d < candies)
+        {
+            greed = greedList[c];
+            while (greed > 0)
+            {
+                if (d == candies)
+                    continue;
+                greed -= sweetList[d];
+                d++;
+            }
+
+            if (greed <= 0)
+            {
+                inefficiency -= greed;
+                angryKids--;
+                happyKids++;
+            }
+
+            c++;
+        }
+        System.out.println(inefficiency);
     }
 
     public void Read(int canNum, int kidNum, String fnGreed, String fnSweet)
@@ -141,7 +167,7 @@ public class GreedyChildren
                 // otherwise, compare the two and determine which to put first
                 else {
 
-                    if (lArray[m] >= rArray[n]) {
+                    if (lArray[m] <= rArray[n]) {
                         pData[p] = lArray[m];
                         m++;
                     }
