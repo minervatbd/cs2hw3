@@ -27,6 +27,12 @@ public class GreedyChildren
         
     }
 
+    // TODO
+    public void greedyCandy()
+    {
+        
+    }
+
     public void Read(String fnGreed, String fnSweet)
     {
         try
@@ -88,9 +94,9 @@ public class GreedyChildren
             e.printStackTrace();
         }
     }
-    
+
     // TODO
-    void display()
+    public void display()
     {
         System.out.println("there are children...");
     }
