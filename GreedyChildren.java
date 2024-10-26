@@ -4,6 +4,9 @@
  * Programming Assignment 3
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class GreedyChildren
 {
@@ -17,5 +20,9 @@ public class GreedyChildren
     // num of angries
     int angryKids;
 
-    
+    // constructor time
+    GreedyChildren(int canNum, int kidNum, String fnGreed, String fnSweet)
+    {
+        
+    }
 }
