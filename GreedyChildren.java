@@ -88,4 +88,10 @@ public class GreedyChildren
             e.printStackTrace();
         }
     }
+    
+    // TODO
+    void display()
+    {
+        System.out.println("there are children...");
+    }
 }
