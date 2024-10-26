@@ -85,9 +85,9 @@ public class GreedyChildren
         }
     }
 
-    // TODO
     public void display()
     {
-        System.out.println("there are children...");
+        System.out.printf("There are %d happy children.\n", this.happyKids);
+        System.out.printf("There are %d angry children.\n", this.angryKids);
     }
 }
