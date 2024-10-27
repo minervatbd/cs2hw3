@@ -7,7 +7,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class GreedyChildren
 {
@@ -37,7 +36,7 @@ public class GreedyChildren
         Read(canNum, kidNum, fnGreed, fnSweet);
     }
 
-    // TODO
+    // greedy algorithm
     public void greedyCandy()
     {
 
@@ -45,15 +44,11 @@ public class GreedyChildren
         mergeSort(greedList, 0, kids - 1);
         mergeSort(sweetList, 0, candies - 1);
 
-        //for (int h = 0; h < kids; h++)
-        //    System.out.printf("%d\n", greedList[h]);
-            
-        //for (int h = 0; h < candies; h++)
-        //    System.out.printf("%d\n", sweetList[h]);
-        
+        // vars for loop
         int c = 0;
         int k = 0;
 
+        // the algorithm itself
         while (c < candies && k < kids)
         {
             // current sweet wont satisfy current kid
@@ -65,8 +60,10 @@ public class GreedyChildren
             // current sweet will satisfy kid
             else
             {
+                // track status of childs
                 happyKids++;
                 angryKids--;
+                // next kid, next sweet
                 c++;
                 k++;
             }
@@ -84,8 +81,6 @@ public class GreedyChildren
             // scanner objects
             Scanner gScan = new Scanner(gFile);
             Scanner sScan = new Scanner(sFile);
-
-            //  temp arraylist
 
             // allocate lists with len space
             this.greedList = new int[kidNum];
